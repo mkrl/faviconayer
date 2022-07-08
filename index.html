@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Faviconayer</title>
+    <link id="favicon" rel="shortcut icon" />
+    <style>
+        html {
+            height: 100vh;
+            font-family: Arial, 'sans-serif';
+        }
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main {
+            min-width: 300px;
+            max-width: 600px;
+            padding: 1rem;
+        }
+        #controls {
+            margin-top: 5vh;
+            justify-content: space-around;
+        }
+        #controls button {
+            width: 7rem;
+            height: 7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: whitesmoke;
+            box-shadow: inset -7px -7px 14px 7px #0000001a;
+        }
+        #controls button > svg {
+            width: 4rem;
+        }
+        #file {
+            display: none;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 4rem;
+        }
+        #label {
+            display: block;
+            cursor: pointer;
+            font-size: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        #label.active:after {
+            position: absolute;
+            content: '↝';
+            font-size: 12rem;
+            transform: rotate(301deg);
+            top: -190px;
+            right: -98px;
+            color: #c4c4c4;
+        }
+        a {
+            font-family: monospace;
+            font-size: 1rem;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Play a video... <i>with</i> your browser tab!</h1>
+    <label for="file" id="label">It's that simple. Click here to select a video.</label>
+    <input type="file" name="file" id="file" accept="video/*">
+    <video id="video" style="display: none"></video>
+    <div id='controls' style="display: none;">
+        <button id='playPause' accesskey="P">⏸</button>
+        <button id='mute' accesskey="M">🔇</button>
+    </div>
+</main>
+<footer>
+    <a href="https://github.com/mkrl/faviconayer" rel="noreferrer noopener" target="_blank">Source</a>
+</footer>
+<div id="dst" style="display: none"></div>
+<script type="module" src="./index.mjs"></script>
+</body>
+</html>
